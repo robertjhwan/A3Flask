@@ -56,19 +56,17 @@ def login():
 def sign_up():
 	if request.method=='POST':
 		utorid = request.form['utorid']
-		password = request.form['utorid']
+		password = request.form['password']
 		sql1 = """
 				INSERT INTO users
-				VALUES ('{}', '{}', 'student')
+				VALUES ('{}', '{}', 's')
 				""".format(utorid, password)
 		results = db.engine.execute(text(sql1))
 		sql1 = """
-				INSERT INTO users
+				INSERT INTO marks
 				VALUES ('{}', 0,0,0,0,0)
 				""".format(utorid)
 		results = db.engine.execute(text(sql1))
-
-
 
 		return redirect(url_for('login'))
 
@@ -89,8 +87,6 @@ def marks():
 	else:
 		return redirect(url_for('login'))
 
-# "INERT INTO users VALUES ('{}', '{}', 'stu')".format(var1, var2)
-# text(sql).autocommit = true
 
 @app.route('/logout')
 def logout():
