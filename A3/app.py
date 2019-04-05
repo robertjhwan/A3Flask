@@ -7,8 +7,6 @@ app.secret_key='abbas'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///a3.db'
 db = SQLAlchemy(app)
 
-results = None
-
 @app.route('/')
 def index():
 	if 'utorid' in session:
@@ -73,17 +71,57 @@ def sign_up():
 	elif request.method=='GET':
 		return render_template('signup.html')
 
-
-
 @app.route('/marks', methods=['GET', 'POST'])
 def marks():
 	if 'utorid' in session:
 		sql1 = """
-					SELECT *
-					FROM marks
-					where utorid='{}'""".format(session['utorid'])
+			SELECT type
+			FROM users
+			where utorid='{}'""".format(session['utorid'])
 		results = db.engine.execute(text(sql1))
-		return render_template('marks.html',results=results)
+		
+		if results == "s":
+			sql1 = """
+				SELECT *
+				FROM marks
+				where utorid='{}'""".format(session['utorid'])	
+			results = db.engine.execute(text(sql1))
+			return render_template('marksStudent.html',results=results)
+
+		elif results == "i":
+			sql1 = """
+				SELECT *
+				FROM marks""".format()	
+			results = db.engine.execute(text(sql1))
+			return render_template('marksInstructor.html',results=results)
+	else:
+		return redirect(url_for('login'))
+
+@app.route('/changeMarks', methods=['GET', 'POST'])
+def changeMarks():
+	if 'utorid' in session:
+		if request.method == 'POST':
+			assign = request.form["assign"]
+			mark = request.form["mark"]
+			utorid = request.form["utorid"]
+
+			sql1 = """
+				UPDATE marks
+				SET '{}' = '{}'
+				where utorid='{}'""".format(assign, mark, utorid)
+			results = db.engine.execute(text(sql1))
+
+			return render_template('marksInstructor.html')
+		elif request.method == 'GET':
+			render_template('marksInstructor.html')
+	else:
+		return redirect(url_for('login'))
+
+
+@app.route('/assignment')
+def assignment():
+	if 'utorid' in session:
+		render_template('assignment.html')
 	else:
 		return redirect(url_for('login'))
 
