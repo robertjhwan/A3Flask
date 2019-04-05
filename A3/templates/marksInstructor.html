@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<div id="resp-table">
+    <div id="resp-table-header">
+            <div class="table-header-cell">
+            utorid
+            </div>
+            <div class="table-header-cell">
+            a1
+            </div>
+            <div class="table-header-cell">
+            a2
+            </div>
+            <div class="table-header-cell">
+            a3
+            </div>
+            <div class="table-header-cell">
+            midterm
+            </div>
+            <div class="table-header-cell">
+            final
+            </div>
+    </div>
+
+    <div id=“resp-table-body”>
+        {% for item in results %}
+        <div class="resp-table-row">
+          <div class="table-body-cell">
+            {{item['utorid']}}
+          </div>
+          <div class="table-body-cell">
+            {{item['a1']}}
+          </div>
+          <div class="table-body-cell">
+            {{item['a2']}}
+          </div>
+          <div class="table-body-cell">
+            {{item['a3']}}
+          </div>
+          <div class="table-body-cell">
+            {{item['midterm']}}
+          </div>
+          <div class="table-body-cell">
+            {{item['final']}}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+</div>
+
+<div>
+  <form action="/changeMark" method="post">
+  <h1> Change Marks </h1>
+  <h2> Select mark</h2> 
+  <select name="assign">
+    <option value="a1">a1</option>
+    <option value="a2">a2</option>
+    <option value="a3">a3</option>
+    <option value="midterm">Midterm</option>
+    <option value="final">Final</option>
+  </select>
+  <input type="text"  placeholder="utorid" name="utorid">
+  <br>
+  <input type="number" placeholder="new mark" name="mark">
+  <br>
+  <button type="submit">Update</button>
+  </form>
+</div>
+
+<a href = "/logout"><button type="submit">Log Out</button></a>
+
+<!-- <div>
+    <h1>Welcome : {{ results['utorid'] }}</h1>
+    <table>
+      <tr>
+        <th>a1</th>
+        <th>a2</th>
+        <th>a3</th>
+        <th>midterm</th>
+        <th>final</th>
+      </tr>
+      <tr>
+        <!-- the dictionary keys should be strings (otherwise Flask can't render them) -->
+
+        <!-- <td>{{ results['a1'] }}</td>
+        <td>{{ results['a2'] }}</td>
+        <td>{{ results['a3'] }}</td>
+        <td>{{ results['midterm'] }}</td>
+        <td>{{ results['final'] }}</td>
+      </tr>
+    </table>
+</div> 
+-->
+
+</body>
+</html>
