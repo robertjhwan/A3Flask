@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+
+html{
+    margin:0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    margin:0;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+div.parent {
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border : 5px solid black; */
+    background:#AEA8A7;
+}
+
+.titlebox{
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+div.parent .innerparent {
+    height: 80%;
+    width : 50%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border : 5px solid black; */
+    background: white;
+    flex-direction: column;
+    box-shadow: 10px 10px 10px 10px rgb(0, 0, 0, 0.5); 
+}
+
+div.parent .innerparent .innerform {
+    
+    /* border : 5px solid black;    */
+    display: flex;
+    flex-direction: column;
+    width : 100%;
+}
+
+div.parent .innerparent .innerform input {
+    justify-content: center;
+    width: 100%;
+    margin-left: 0px; 
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+div.parent .innerparent .innerform textarea {
+    justify-content: center;
+    width: 100%;
+    margin-left: 0px; 
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+
+    height: 135px;
+}
