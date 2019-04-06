@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body>
+    <div class='parent'>
+        <div class='innerparent'>
+            <div class = 'titlebox'>
+                <h1>
+                        Your Feedback
+                </h1>
+            </div>
+
+        <div id="resp-table">
+            <div id="resp-table-header">
+                    <div class="table-header-cell">
+                    utorid
+                    </div>
+                    <div class="table-header-cell">
+                    q1
+                    </div>
+                    <div class="table-header-cell">
+                    q2
+                    </div>
+                    <div class="table-header-cell">
+                    q3
+                    </div>
+                    <div class="table-header-cell">
+                    q4
+                    </div>
+            </div>
+
+            <div id=“resp-table-body”>
+                {% for item in results %}
+                <div class="resp-table-row">
+                <div class="table-body-cell">
+                    {{item['utorid']}}
+                </div>
+                <div class="table-body-cell">
+                    {{item['q1']}}
+                </div>
+                <div class="table-body-cell">
+                    {{item['q2']}}
+                </div>
+                <div class="table-body-cell">
+                    {{item['q3']}}
+                </div>
+                <div class="table-body-cell">
+                    {{item['q4']}}
+                </div>
+                </div>
+            {% endfor %}
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

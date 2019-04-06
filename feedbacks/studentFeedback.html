@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body>
+    <div class='parent'>
+        <div class='innerparent'>
+            <div class = 'titlebox'>
+                <h1>
+                        Anonymous feedback form 
+                </h1>
+            </div>
+
+            <form class='innerform' action="/feedback" method="post">
+                
+                <input type="text" name="utorid" placeholder="utorid">
+                <div class = 'titlebox'>
+                        What do you like about the instructor teaching?
+
+                </div>
+                <textarea type="text" name="q1" placeholder="feedback"></textarea>
+                <div class = 'titlebox'>
+                        What do you recommend the instructor to do to improve their teaching?
+                </div>
+                <textarea type="text" name="q2" placeholder="feedback"></textarea>
+                <div class = 'titlebox'>
+                        What do you like about the labs?
+                </div>
+                <textarea type="text" name="q3" placeholder="feedback"></textarea>
+                <div class = 'titlebox'>
+                        What do you recommend the lab instructors to do to improve their lab teaching?
+                </div>
+                <textarea type="text" name="q4" placeholder="feedback"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
