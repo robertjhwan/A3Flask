@@ -42,6 +42,19 @@ div.parent .innerparent {
     box-shadow: 10px 10px 10px 10px rgb(0, 0, 0, 0.5); 
 }
 
+div.parent .innerparentElse {
+    height: 80%;
+    width : 100%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border : 5px solid black; */
+    background: white;
+    flex-direction: column;
+    box-shadow: 10px 10px 10px 10px rgb(0, 0, 0, 0.5); 
+}
+
 div.parent .innerparent .innerform {
     
     /* border : 5px solid black;    */
@@ -80,4 +93,37 @@ div.parent .innerparent .innerform textarea {
     border-width: 1px;
 
     height: 70px;
+}
+
+
+/* display for tables */
+#resp-table {
+    width: 100%;
+    display: table;
+}
+
+#resp-table-header{
+    display: table-header-group;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.table-header-cell{
+    display: table-cell;
+    padding: 10px;
+    text-align: justify;
+    border-bottom: 1px solid black;
+}
+
+#resp-table-body{
+    display: table-row-group;
+}
+
+.resp-table-row{
+    display: table-row;
+}
+
+.table-body-cell{
+    display: table-cell;
 }
